@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Thought<span>Bite</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#tools">Top Tools</a>
+      <a href="#videos">Videos</a>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to <span>ThoughtBite</span></h1>
+      <p>Explore free AI tools, insightful videos, and curated tech hacks — all in one bite.</p>
+      <a href="#videos" class="cta-btn">Explore Latest Video</a>
+    </div>
+    <div class="hero-animation">
+      <img src="3d-robot.gif" alt="3D AI bot animation" />
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <h2>Top 3 AI Tools (and one bonus)</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>InfinityFree</h3>
+        <p>Free website hosting with no ads or bandwidth limits.</p>
+        <a href="https://www.infinityfree.com" target="_blank">Visit Site</a>
+      </div>
+      <div class="tool-card">
+        <h3>LlamaCoder</h3>
+        <p>AI code assistant in-browser, no sign-up required.</p>
+        <a href="https://llamacoder.together.ai" target="_blank">Visit Site</a>
+      </div>
+      <div class="tool-card">
+        <h3>FileMail</h3>
+        <p>Send files up to 5GB, fast and without logging in.</p>
+        <a href="https://www.filemail.com" target="_blank">Visit Site</a>
+      </div>
+      <div class="tool-card premium">
+        <h3>TealHQ (Freemium)</h3>
+        <p>Job tracker and resume builder. Basic plan is free.</p>
+        <a href="https://www.tealhq.com" target="_blank">Visit Site</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <h2>Latest Video Drop</h2>
+    <div class="video-detail">
+      <h3><a href="video-top-3-tools.html">Top 3 AI Tools That Feel ILLEGAL</a></h3>
+      <a href="video-top-3-tools.html" class="watch-btn">Watch Video</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
+  </footer>
+</body>
+</html>
