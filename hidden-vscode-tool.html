@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hidden VS Code Tool | ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body id="header">
+
+  <header class="navbar">
+    <div class="logo animate in-view">
+      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo">
+      <span>ThoughtBite</span>
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#latest">Videos</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero animate" id="hero">
+      <h2>🛠️ ClineAI Setup Guide</h2>
+      <p class="highlight">Your free AI coding partner powered by Google Gemini</p>
+      <div class="cta">
+        <a href="#guide" class="cta-btn">Get Started</a>
+        <a href="https://docs.google.com/document/d/1h0HfgdeZSfSqhMHRTQX5Wzdsalrjr9Ss/edit" target="_blank" class="watch-btn">📥 Download Full Guide</a>
+      </div>
+    </section>
+
+    <section id="features" class="about">
+      <h2 data-aos="fade-up">Key Features</h2>
+      <div class="about-cards">
+        <div class="card animate">
+          <h3>🧠 Write New Code</h3>
+          <p>Generate functions, classes, and full apps with natural language.</p>
+        </div>
+        <div class="card animate">
+          <h3>🐞 Fix Bugs</h3>
+          <p>Auto-detect and fix code errors instantly.</p>
+        </div>
+        <div class="card animate">
+          <h3>🧪 Generate Test Cases</h3>
+          <p>Create tests to validate your logic before deployment.</p>
+        </div>
+        <div class="card animate">
+          <h3>⚙️ Start Projects</h3>
+          <p>Quickly scaffold best-practice codebases and templates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide" class="latest">
+      <h2>Step-by-Step Guide</h2>
+      <div class="video-card animate">
+        <p><strong>1. Install Extension:</strong><br> VS Code → Extensions → Search <em>"Cline-AI"</em> → Install.</p>
+        <p><strong>2. Open Cline Panel:</strong><br> Click the robot icon in the sidebar.</p>
+        <p><strong>3. Select API Provider:</strong><br> Choose <span class="highlight-text">Google Gemini</span>.</p>
+        <p><strong>4. Get API Key:</strong><br> Go to Google AI Studio → Create key → Copy it.</p>
+        <p><strong>5. Configure Model:</strong><br> Paste key and select <code>gemini-2.0-flash-thinking-exp-1219</code>.</p>
+        <p><strong>6. Start Coding:</strong><br> Try prompts like <em>"understand the codebase"</em>.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="fixed-icons">
+    <a href="https://www.instagram.com/thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ThoughtBite. Made with ❤️ for developers.</p>
+  </footer>
+
+  <script>
+    // Navbar toggle for mobile
+    document.getElementById('burger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    // Simple scroll reveal animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => e.isIntersecting && e.target.classList.add('in-view'));
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
