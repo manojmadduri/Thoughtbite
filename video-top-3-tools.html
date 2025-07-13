@@ -2,72 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Top 3 AI Tools | ThoughtBite</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script defer src="scripts.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    .fixed-icons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-    .fixed-icons img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .fixed-icons img:hover {
-      transform: scale(1.1);
-    }
-  </style>
 </head>
 <body>
+
   <header class="navbar">
     <div class="logo">
-      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj"
-           alt="ThoughtBite Logo"
-           style="height: 40px; vertical-align: middle; border-radius: 50%; margin-right: 10px;">
-      Thought<span>Bite</span>
+      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+      <span>ThoughtBite</span>
     </div>
     <nav class="nav-links" id="navLinks">
       <a href="index.html#home">Home</a>
-      <a href="index.html#tools">Top Tools</a>
-      <a href="index.html#videos">Videos</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#latest">Latest Drop</a>
     </nav>
     <div class="burger" onclick="toggleMenu()">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
+      <div></div><div></div><div></div>
     </div>
   </header>
 
-  <section class="section">
-    <h2>Top 3 AI Tools That Feel ILLEGAL (But Are FREE)</h2>
-    <p>This video reveals 3 free AI tools that feel too powerful to be free — plus 1 bonus tool that can supercharge your career.</p>
-
-    <div class="video-script">
-      <h3>🛠 Tools Mentioned:</h3>
-      <ul>
-        <li><strong>InfinityFree</strong> – <a href="https://www.infinityfree.com" target="_blank">Free website hosting</a></li>
-        <li><strong>LlamaCoder</strong> – <a href="https://llamacoder.together.ai" target="_blank">AI code assistant</a></li>
-        <li><strong>FileMail</strong> – <a href="https://www.filemail.com" target="_blank">Send large files</a></li>
-        <li><strong>TealHQ (Freemium)</strong> – <a href="https://www.tealhq.com" target="_blank">Job & resume management</a></li>
-      </ul>
-
-      <h3>🎙️ Script Summary:</h3>
-      <p>“Stop paying for services that should be free. These 3 tools let you host websites, code with AI, and transfer big files — for zero cost. And for those in the job market, the bonus tool gives you a serious edge with resumes and job tracking.”</p>
-
-      <p><strong>Want more like this?</strong> Drop a comment on our socials that says <strong>“TOOLS”</strong> and I’ll reply with the full list!</p>
+  <section class="hero" id="video-hero">
+    <div class="hero-text" data-aos="fade-up">
+      <h1><span>Top 3</span> AI Tools That Feel ILLEGAL</h1>
+      <p>Explore powerful AI tools you can use 100% free — and one smart bonus for your career.</p>
     </div>
+    <div class="hero-img">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/artificial-intelligence-optimization-6840170-5632742.png" alt="AI Tools" />
+    </div>
+    <div class="bg-blobs">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+    </div>
+  </section>
 
+  <section class="section" id="tools-list" style="padding: 4rem 2rem;">
+    <h2 data-aos="fade-up">🛠 Tools Mentioned</h2>
+    <div class="about-cards">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h3>InfinityFree</h3>
+        <p>Free website hosting with no ads or bandwidth limits.</p>
+        <a href="https://www.infinityfree.com" target="_blank">Visit Site</a>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h3>LlamaCoder</h3>
+        <p>Browser-based AI coding assistant — no login needed.</p>
+        <a href="https://llamacoder.together.ai" target="_blank">Visit Site</a>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <h3>FileMail</h3>
+        <p>Send large files (5GB+) with just a click. No signup.</p>
+        <a href="https://www.filemail.com" target="_blank">Visit Site</a>
+      </div>
+      <div class="card premium" data-aos="fade-up" data-aos-delay="400">
+        <h3>TealHQ (Freemium)</h3>
+        <p>Resume builder + job tracker. Free to use, with upgrades.</p>
+        <a href="https://www.tealhq.com" target="_blank">Visit Site</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest" style="padding-top: 0;" data-aos="fade-up">
+    <div class="video-card">
+      <h3>💬 What Did the Video Say?</h3>
+      <p>These tools feel too good to be free. InfinityFree helps you host, LlamaCoder writes code with AI, FileMail sends big files, and TealHQ helps you track jobs. One line at a time, I break it down — without revealing the names (unless you comment “TOOLS”).</p>
+    </div>
     <a href="index.html" class="watch-btn" style="margin-top: 2rem;">← Back to Home</a>
   </section>
 
@@ -79,5 +82,9 @@
   <footer>
     <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
 </body>
 </html>
