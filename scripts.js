@@ -1,18 +1,25 @@
-function toggleMenu() {
-  const nav = document.getElementById("navLinks");
-  nav.classList.toggle("active");
-}
 
-// Optional: Add subtle motion to blobs (if needed)
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 30;
-  const y = (e.clientY / window.innerHeight - 0.5) * 30;
+document.addEventListener('DOMContentLoaded', () => {
+  const pastVideos = [
+    {
+      title: "Top 3 AI Tools That Feel ILLEGAL",
+      link: "video-top-3-tools.html"
+    },
+    {
+      title: "Hidden VS Code Tool",
+      link: "video-hidden-vscode-tool.html"
+    }
+  ];
 
-  const blob1 = document.querySelector('.blob1');
-  const blob2 = document.querySelector('.blob2');
+  const container = document.getElementById("pastVideos");
 
-  if (blob1 && blob2) {
-    blob1.style.transform = `translate(${x}px, ${y}px)`;
-    blob2.style.transform = `translate(${x * -1}px, ${y * -1}px)`;
-  }
+  pastVideos.forEach(video => {
+    const card = document.createElement("div");
+    card.className = "video-card";
+    card.innerHTML = `
+      <h3>${video.title}</h3>
+      <a href="${video.link}" class="cta-btn">Watch Now</a>
+    `;
+    container.appendChild(card);
+  });
 });
