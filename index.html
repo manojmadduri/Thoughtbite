@@ -7,10 +7,34 @@
   <link rel="stylesheet" href="styles.css" />
   <script defer src="scripts.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .fixed-icons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .fixed-icons img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .fixed-icons img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">Thought<span>Bite</span></div>
+    <div class="logo">
+      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" style="height: 40px; vertical-align: middle; border-radius: 50%; margin-right: 10px;">
+      Thought<span>Bite</span>
+    </div>
     <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#tools">Top Tools</a>
@@ -67,6 +91,11 @@
       <a href="video-top-3-tools.html" class="watch-btn">Watch Video</a>
     </div>
   </section>
+
+  <div class="fixed-icons">
+    <a href="https://www.instagram.com/thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+  </div>
 
   <footer>
     <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
