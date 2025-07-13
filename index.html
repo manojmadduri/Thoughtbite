@@ -2,81 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThoughtBite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThoughtBite - Home</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script defer src="scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
+
   <header class="navbar">
     <div class="logo">
       <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
       <span>ThoughtBite</span>
     </div>
     <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#latest">Latest Drop</a>
+      <a href="#home">Home</a>
+      <a href="#videos">Videos</a>
+      <a href="#newsletter">Newsletter</a>
     </nav>
-    <div class="burger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
   </header>
 
   <section class="hero" id="home">
-    <div class="hero-text" data-aos="fade-up">
-      <h1><span>Thought</span>Bite</h1>
-      <p>Explore AI tools, tech hacks & developer tips — one short video at a time.</p>
-      <a href="#latest" class="cta-btn">Watch Latest Drop</a>
+    <div class="hero-content">
+      <h1>Welcome to <span class="highlight">ThoughtBite</span></h1>
+      <p>Explore smart AI tools, tech news, and short explainers built for curious minds. Updated daily!</p>
+      <a href="#videos" class="cta-btn">Watch Latest</a>
     </div>
-    <div class="hero-img">
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/ai-robot-thinking-7084717-5757082.png" alt="AI Robot" />
-    </div>
-    <div class="bg-blobs">
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
+    <div class="hero-image">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/ai-robot-thinking-7084717-5757082.png" alt="AI Illustration" />
     </div>
   </section>
 
-  <section class="about" id="about">
-    <h2 data-aos="fade-up">What is ThoughtBite?</h2>
-    <div class="about-cards">
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <h3>⚡ Fast Learning</h3>
-        <p>We deliver powerful insights in 60 seconds or less. No fluff.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <h3>🤖 AI + Tech Focus</h3>
-        <p>We cover AI tools, coding hacks, and smart workflows for developers and creatives.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <h3>🎯 Built for You</h3>
-        <p>Whether you're a coder, creator, or explorer — this is your tech snack bar.</p>
-      </div>
-    </div>
+  <section class="latest" id="videos">
+    <h2>Past Videos</h2>
+    <div id="pastVideos" class="video-grid"></div>
   </section>
 
-  <section class="latest" id="latest">
-    <h2 data-aos="fade-up">Latest Video Drop</h2>
-    <div class="video-card" data-aos="zoom-in">
-      <h3>Top 3 AI Tools That Feel ILLEGAL</h3>
-      <a href="video-top-3-tools.html" class="watch-btn">View Details</a>
-    </div>
+  <section class="newsletter" id="newsletter">
+    <h2>Join Our Tech Brief</h2>
+    <p>One email a week. Tools, hacks, and AI drops.</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit" class="cta-btn">Subscribe</button>
+    </form>
   </section>
 
   <div class="fixed-icons">
-    <a href="https://www.instagram.com/thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@thethoughtbite" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://www.instagram.com/thethoughtbite" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+    </a>
+    <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+    </a>
   </div>
 
   <footer>
-    <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
+    <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
