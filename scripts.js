@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Hidden VS Code Tool",
       link: "video-hidden-vscode-tool.html"
     }
+    {
+    title: "AI Critical Thinking Prompt",
+    link: "ai-prompt.html"
+  }
   ];
 
   const container = document.getElementById("pastVideos");
