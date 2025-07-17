@@ -14,6 +14,11 @@
       <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
       <span>ThoughtBite</span>
     </div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#videos">Videos</a>
@@ -34,7 +39,20 @@
 
   <section class="latest" id="videos">
     <h2>Past Videos</h2>
-    <div id="pastVideos" class="video-grid"></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <h3>Top 3 AI Tools That Feel ILLEGAL</h3>
+        <a href="video-top-3-tools.html" class="cta-btn">Watch Now</a>
+      </div>
+      <div class="video-card">
+        <h3>Hidden VS Code Tool</h3>
+        <a href="video-hidden-vscode-tool.html" class="cta-btn">Watch Now</a>
+      </div>
+      <div class="video-card">
+        <h3>AI Critical Thinking Prompt</h3>
+        <a href="ai-prompt.html" class="cta-btn">View Prompt</a>
+      </div>
+    </div>
   </section>
 
   <section class="newsletter" id="newsletter">
@@ -59,12 +77,12 @@
     <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
   </footer>
 
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+  </script>
+
   <script src="scripts.js"></script>
 </body>
-
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-
 </html>
