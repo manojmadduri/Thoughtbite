@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prompt for AI - ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    .prompt-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .prompt-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .code-block {
+      background: #1e1e2f;
+      color: #00e0ff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      position: relative;
+      max-width: 800px;
+      margin: 1rem auto;
+      font-family: monospace;
+      text-align: left;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .copy-btn:hover {
+      background: #00b6cc;
+    }
+
+    /* Responsive nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      background: #fff;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #12141d;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: right;
+        padding: 1rem 2rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo"/>
+      <span>ThoughtBite</span>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#videos">Videos</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <section class="prompt-section">
+    <h2>Copy the Prompt Below</h2>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyPrompt()">Copy</button>
+<pre id="promptText">
+To avoid confirmation bias wherever possible  
+To force you to think outside your knowledge and opinion bubble  
+To increase your overall creativity and critical thinking skills  
+To add nuance to every situation, without being overly discouraging  
+
+In all your responses, please focus on substance over praise.  
+Skip unnecessary compliments, engage critically with my ideas, question my assumptions, identify my biases, and offer counterpoints when relevant.  
+Don't shy away from disagreement, and ensure that any agreements you have are grounded in reason and evidence.  
+
+When writing your response, please ensure you include the following information:  
+1. A neutral, unbiased view of the request, unfiltered by your desire to be a helpful and positive assistant.  
+2. A devil's advocate view, pointing out any logical counterpoints or things that I have overlooked.  
+3. An encouraging, positive view of the request.  
+</pre>
+    </div>
+  </section>
+
+  <div class="fixed-icons">
+    <a href="https://www.instagram.com/thethoughtbite" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"/>
+    </a>
+    <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"/>
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
+  </footer>
+
+  <script>
+    // Nav toggle for mobile
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    function copyPrompt() {
+      const text = document.getElementById("promptText").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Prompt copied to clipboard!");
+      });
+    }
+  </script>
+
+</body>
+</html>
