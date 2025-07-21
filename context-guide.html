@@ -1,108 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Context Engineering Guide - ThoughtBite</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastering Prompt & Context Engineering - ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">
-    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo">
     <span>ThoughtBite</span>
   </div>
   <div class="nav-toggle" id="navToggle">
-    <span></span>
-    <span></span>
-    <span></span>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
   </div>
   <nav class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
-    <a href="index.html#videos">Videos</a>
-    <a href="index.html#newsletter">Newsletter</a>
+    <a href="context-guide.html">Context Guide</a>
+    <a href="#references">References</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Context Engineering <span class="highlight">Explained</span></h1>
-    <p>Discover how context transforms AI responses with examples, visual prompts, and tips to master it.</p>
-  </div>
-  <div class="hero-image">
-    <img src="https://cdni.iconscout.com/illustration/premium/thumb/artificial-intelligence-5813832-4875943.png" alt="Context Engineering Illustration" />
+    <h1>Mastering Prompt Engineering & Context Engineering</h1>
+    <p>A Practical Guide with Real Examples, AI Outputs, and Visual Prompts</p>
   </div>
 </section>
 
-<section class="latest">
-  <h2>Why Context Engineering Matters</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <h3>Prompt vs Context — Blog Writing</h3>
-      <p>⚡ Without Context: Generic content<br>✅ With Context: Audience-focused engaging story</p>
-    </div>
-    <div class="video-card">
-      <h3>Social Media Example</h3>
-      <p>⚡ Without Context: Boring caption<br>✅ With Context: Fun, relatable, audience-targeted caption</p>
-    </div>
-    <div class="video-card">
-      <h3>Code Example — Python Tutor</h3>
-      <p>⚡ Without Context: Plain code<br>✅ With Context: Beginner-friendly code with comments</p>
-    </div>
-  </div>
-</section>
+<main class="blog-content">
+  <h2>Chapter 1: What is Prompt Engineering?</h2>
+  <p>Prompt Engineering is crafting precise instructions for AI. The more specific the prompt, the better the AI response.</p>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0e42dhmEYbzDfnj1v0Z9Jg.png" alt="Prompt Engineering Example" style="width:100%;margin:1rem 0;">
 
-<section class="newsletter">
-  <h2>Visual Prompts for Better Understanding</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <h3>Classroom Storytelling</h3>
-      <img src="https://cdn.pixabay.com/photo/2021/03/22/07/44/teacher-6114379_960_720.png" alt="Storytelling Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
-      <p>Robot teacher with happy students in a colorful classroom — shows context-driven creativity</p>
-    </div>
-    <div class="video-card">
-      <h3>AI Tutor with Code</h3>
-      <img src="https://cdn.pixabay.com/photo/2020/07/29/08/34/coding-5440606_960_720.jpg" alt="Coding Tutor Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
-      <p>Python tutor explaining to a student with code floating in background</p>
-    </div>
-    <div class="video-card">
-      <h3>Context Split Screen</h3>
-      <img src="https://cdn.pixabay.com/photo/2017/10/11/18/20/artificial-intelligence-2847508_960_720.jpg" alt="Split Screen AI Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
-      <p>Left side — user prompt | Right side — AI processing with memory, tools, documents</p>
-    </div>
-  </div>
-</section>
+  <h2>Chapter 2: What is Context Engineering?</h2>
+  <p>Context Engineering sets the background before the AI answers. It includes the role, audience, data, and tone.</p>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7Ecb3Jhz0F1z6t06f5u1XA.png" alt="Context Engineering Example" style="width:100%;margin:1rem 0;">
 
-<section class="latest">
-  <h2>Practice Prompts for You</h2>
-  <table style="width:100%; color:white; text-align:left; border-collapse: collapse; margin-top:2rem;">
-    <tr style="background:#1c1e26;">
-      <th style="padding:0.5rem; border:1px solid #555;">Task</th>
-      <th style="padding:0.5rem; border:1px solid #555;">Prompt</th>
-      <th style="padding:0.5rem; border:1px solid #555;">Context Instruction</th>
-    </tr>
-    <tr>
-      <td style="padding:0.5rem; border:1px solid #555;">Email Writing</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“Write a follow-up email.”</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“You are a project manager following up after a client meeting.”</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5rem; border:1px solid #555;">LinkedIn Post</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“Write a LinkedIn post on teamwork.”</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“You are a team leader sharing a personal teamwork success story.”</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5rem; border:1px solid #555;">Travel Blog</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“Write about visiting Paris.”</td>
-      <td style="padding:0.5rem; border:1px solid #555;">“You are a travel blogger giving budget tips for first-timers in Paris.”</td>
-    </tr>
-  </table>
-</section>
+  <h2>Chapter 3: Code Writing with Context</h2>
+  <pre><code>With Context:
+System Instruction: You are a Python tutor for beginners. Write a function to check if a number is even, with clear comments.
+AI Output:
+def is_even(number):
+    # This function checks if the given number is even
+    if number % 2 == 0:
+        return True  # Number is even
+    else:
+        return False  # Number is odd</code></pre>
+
+  <h2>Chapter 4: Storytelling Example</h2>
+  <p>Using context allows AI to create tailored, engaging stories.</p>
+
+  <h2>Chapter 5: Summary Chart</h2>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Hlh7n7OifdaQy3VgR5I3lA.png" alt="Summary Chart" style="width:100%;margin:1rem 0;">
+
+  <h2>Chapter 6: Practice Prompts for Subscribers</h2>
+  <p>Use these prompts and context instructions to practice on your own or with your AI assistant.</p>
+
+  <h2>Chapter 7: Image Prompts for Visuals</h2>
+  <ul>
+    <li><strong>AI Assistant with Memory Bank:</strong> <a href="https://openai.com" target="_blank">Sample AI Memory Vault Image</a></li>
+    <li><strong>Prompt vs Context Split Scene:</strong> <a href="https://openai.com" target="_blank">Sample Split Screen Visual</a></li>
+    <li><strong>Smart AI Workspace:</strong> <a href="https://openai.com" target="_blank">Sample Workspace Setup</a></li>
+  </ul>
+
+  <h2>Chapter 8: Success Formula</h2>
+  <p><strong>System Role + Task Definition + Clear Prompt = Smarter Output</strong></p>
+
+  <h2>Chapter 9: Final Thoughts</h2>
+  <p>Mastering both Prompt Engineering and Context Engineering will help you write better AI commands, get smarter outputs, and customize AI to your real needs.</p>
+
+  <h2>Chapter 10: Call to Action</h2>
+  <ul>
+    <li>✅ Practice with these examples</li>
+    <li>✅ Share this guide with friends</li>
+    <li>✅ Follow us for real-life prompt tips</li>
+  </ul>
+
+  <h2 id="references">References & Further Reading</h2>
+  <ul>
+    <li><a href="https://openai.com" target="_blank">OpenAI Official Documentation</a></li>
+    <li><a href="https://platform.openai.com/docs/guides/prompting" target="_blank">OpenAI Prompting Guide</a></li>
+    <li><a href="https://www.promptingguide.ai/" target="_blank">The Prompting Guide</a></li>
+    <li><a href="https://www.mindread.ai/blog" target="_blank">Mindread AI Blog</a></li>
+  </ul>
+</main>
 
 <footer>
-  <p>&copy; 2025 ThoughtBite. Crafted for curious AI learners.</p>
+  <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
 </footer>
 
 <script>
