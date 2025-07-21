@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Context Engineering Guide - ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+    <span>ThoughtBite</span>
+  </div>
+  <div class="nav-toggle" id="navToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#videos">Videos</a>
+    <a href="index.html#newsletter">Newsletter</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Context Engineering <span class="highlight">Explained</span></h1>
+    <p>Discover how context transforms AI responses with examples, visual prompts, and tips to master it.</p>
+  </div>
+  <div class="hero-image">
+    <img src="https://cdni.iconscout.com/illustration/premium/thumb/artificial-intelligence-5813832-4875943.png" alt="Context Engineering Illustration" />
+  </div>
+</section>
+
+<section class="latest">
+  <h2>Why Context Engineering Matters</h2>
+  <div class="video-grid">
+    <div class="video-card">
+      <h3>Prompt vs Context — Blog Writing</h3>
+      <p>⚡ Without Context: Generic content<br>✅ With Context: Audience-focused engaging story</p>
+    </div>
+    <div class="video-card">
+      <h3>Social Media Example</h3>
+      <p>⚡ Without Context: Boring caption<br>✅ With Context: Fun, relatable, audience-targeted caption</p>
+    </div>
+    <div class="video-card">
+      <h3>Code Example — Python Tutor</h3>
+      <p>⚡ Without Context: Plain code<br>✅ With Context: Beginner-friendly code with comments</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Visual Prompts for Better Understanding</h2>
+  <div class="video-grid">
+    <div class="video-card">
+      <h3>Classroom Storytelling</h3>
+      <img src="https://cdn.pixabay.com/photo/2021/03/22/07/44/teacher-6114379_960_720.png" alt="Storytelling Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
+      <p>Robot teacher with happy students in a colorful classroom — shows context-driven creativity</p>
+    </div>
+    <div class="video-card">
+      <h3>AI Tutor with Code</h3>
+      <img src="https://cdn.pixabay.com/photo/2020/07/29/08/34/coding-5440606_960_720.jpg" alt="Coding Tutor Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
+      <p>Python tutor explaining to a student with code floating in background</p>
+    </div>
+    <div class="video-card">
+      <h3>Context Split Screen</h3>
+      <img src="https://cdn.pixabay.com/photo/2017/10/11/18/20/artificial-intelligence-2847508_960_720.jpg" alt="Split Screen AI Example" style="width:100%; border-radius:10px; margin:1rem 0;" />
+      <p>Left side — user prompt | Right side — AI processing with memory, tools, documents</p>
+    </div>
+  </div>
+</section>
+
+<section class="latest">
+  <h2>Practice Prompts for You</h2>
+  <table style="width:100%; color:white; text-align:left; border-collapse: collapse; margin-top:2rem;">
+    <tr style="background:#1c1e26;">
+      <th style="padding:0.5rem; border:1px solid #555;">Task</th>
+      <th style="padding:0.5rem; border:1px solid #555;">Prompt</th>
+      <th style="padding:0.5rem; border:1px solid #555;">Context Instruction</th>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem; border:1px solid #555;">Email Writing</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“Write a follow-up email.”</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“You are a project manager following up after a client meeting.”</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem; border:1px solid #555;">LinkedIn Post</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“Write a LinkedIn post on teamwork.”</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“You are a team leader sharing a personal teamwork success story.”</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem; border:1px solid #555;">Travel Blog</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“Write about visiting Paris.”</td>
+      <td style="padding:0.5rem; border:1px solid #555;">“You are a travel blogger giving budget tips for first-timers in Paris.”</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  <p>&copy; 2025 ThoughtBite. Crafted for curious AI learners.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
