@@ -1,5 +1,11 @@
-
 document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
   const pastVideos = [
     {
       title: "Top 3 AI Tools That Feel ILLEGAL",
@@ -10,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
       link: "video-hidden-vscode-tool.html"
     },
     {
-    title: "AI Critical Thinking Prompt",
-    link: "ai-prompt.html"
-  }
+      title: "AI Critical Thinking Prompt",
+      link: "ai-prompt.html"
+    }
   ];
 
   const container = document.getElementById("pastVideos");
