@@ -3,68 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ThoughtBite - Home</title>
+  <title>ThoughtBite - Context Engineering Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #0f1117; color: #fff; margin: 0; }
+    header.navbar { display: flex; justify-content: space-between; align-items: center; background: #12141d; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
+    .logo { display: flex; align-items: center; font-size: 1.5rem; color: #00e0ff; font-weight: 700; }
+    .logo img { height: 40px; border-radius: 50%; margin-right: 10px; }
+    .nav-links a { margin-left: 2rem; color: #fff; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: #00e0ff; }
+    .nav-toggle { display: none; cursor: pointer; }
+    .nav-toggle .bar { width: 25px; height: 3px; background: #fff; margin: 5px 0; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; background: #12141d; position: absolute; top: 70px; right: 0; width: 200px; }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+    }
+    .content-section { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+    h1, h2, h3 { color: #00e0ff; }
+    p, li { line-height: 1.8; }
+    pre { background: #1c1e26; padding: 1rem; border-radius: 8px; color: #00e0ff; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #333; padding: 10px; }
+    th { background: #1a1f2e; color: #00e0ff; }
+    img.content-img { max-width: 100%; border-radius: 10px; margin: 20px 0; }
+    .fixed-icons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+    .fixed-icons img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .fixed-icons img:hover { transform: scale(1.1); }
+    footer { text-align: center; padding: 2rem; background: #12141d; color: #888; }
+  </style>
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="logo">
-      <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
-      <span>ThoughtBite</span>
-    </div>
-    <div class="nav-toggle" id="navToggle">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#videos">Videos</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="context-guide.html">Context Guide</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Welcome to <span class="highlight">ThoughtBite</span></h1>
-      <p>Explore smart AI tools, tech news, and short explainers built for curious minds. Updated daily!</p>
-      <a href="#videos" class="cta-btn">Watch Latest</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/ai-robot-thinking-7084717-5757082.png" alt="AI Illustration" />
-    </div>
-  </section>
-
-  <section class="latest" id="videos">
-    <h2>Past Videos</h2>
-    <div class="video-grid" id="pastVideos"></div>
-  </section>
-
-  <section class="newsletter" id="newsletter">
-    <h2>Join Our Tech Brief</h2>
-    <p>One email a week. Tools, hacks, and AI drops.</p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit" class="cta-btn">Subscribe</button>
-    </form>
-  </section>
-
-  <div class="fixed-icons">
-    <a href="https://www.instagram.com/thethoughtbite" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
-    </a>
-    <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
-    </a>
+<header class="navbar">
+  <div class="logo">
+    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+    <span>ThoughtBite</span>
   </div>
+  <div class="nav-toggle" id="navToggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#examples">Examples</a>
+    <a href="#summary">Summary</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
-  </footer>
+<section class="content-section">
+  <h1>Mastering Prompt Engineering & Context Engineering</h1>
+  <p>This guide explains with detailed examples how using the right prompts and the right context setup can drastically improve AI responses.</p>
 
-  <script src="scripts.js"></script>
+  <h2 id="examples">Examples</h2>
+
+  <h3>1️⃣ Customer Support Email</h3>
+  <p><strong>Prompt-Only:</strong> “Write a customer support email.”</p>
+  <pre>AI Output: "Thank you for contacting us. We will get back to you soon."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: You are a customer support agent for an online store.
+Customer Data: The order was delayed by 3 days.
+Prompt: Write a polite apology email with a 10% discount offer.
+AI Output:
+Dear [Customer],
+We sincerely apologize for the delay. As a token, enjoy a 10% discount on your next purchase.
+Thank you for your understanding.
+Customer Support Team</pre>
+
+  <h3>2️⃣ Social Media Caption for Product Launch</h3>
+  <p><strong>Prompt-Only:</strong> “Write a social media post for a new product.”</p>
+  <pre>AI Output: "Check out our new product now available!"</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Creative social media manager for a tech gadget.
+Product: AI-powered smartwatch.
+Audience: Fitness enthusiasts.
+Prompt: Write a catchy Instagram caption.
+AI Output:
+🎯 Meet your new fitness buddy — the AI-powered SmartX Watch!
+Track workouts, monitor health, and crush goals smarter.
+Ready to #TrainSmart? 💪 #SmartXWatch</pre>
+
+  <h3>3️⃣ Resume Summary</h3>
+  <p><strong>Prompt-Only:</strong> “Write a resume summary.”</p>
+  <pre>AI Output: "I am a hardworking professional with experience."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Resume writer for a Full Stack Developer.
+Prompt: Write a strong LinkedIn summary.
+AI Output:
+Full Stack Developer with 5+ years in Java, React, AWS.
+Expert in microservices & cloud deployments.
+Delivering high-impact solutions in agile teams.</pre>
+
+  <h3>4️⃣ YouTube Video Title & Description</h3>
+  <p><strong>Prompt-Only:</strong> “Write a YouTube title and description.”</p>
+  <pre>AI Output: "AI Tutorial — Learn AI Basics."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: YouTube creator making AI content for beginners.
+Audience: College students.
+Prompt: Write an engaging title and catchy description.
+AI Output:
+Title: AI for Beginners — Start Your Career in AI
+Description: Learn AI basics, projects, and top career tips. Subscribe for expert insights!</pre>
+
+  <h3>5️⃣ Market Research Report Summary</h3>
+  <p><strong>Prompt-Only:</strong> “Write a market research report summary.”</p>
+  <pre>AI Output: "The market is growing. There is demand."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Market research analyst on wearable tech.
+Data: Growth rates, market leaders, trends.
+Prompt: Write a 5-sentence professional summary.
+AI Output:
+The wearable tech market will grow 15% CAGR through 2025.
+Leaders include Apple, Samsung, Fitbit.
+Consumer demand drives AI integration.
+Asia-Pacific shows highest growth potential.
+Affordable smart wearables are key to future expansion.</pre>
+
+  <h2 id="summary">Summary Table — Prompt vs Context Engineering</h2>
+  <table>
+    <tr><th>Task</th><th>Prompt-Only Output</th><th>With Context Output</th></tr>
+    <tr><td>Customer Email</td><td>Generic response</td><td>Polite apology with offer</td></tr>
+    <tr><td>Social Media Post</td><td>Generic announcement</td><td>Catchy, audience-targeted post</td></tr>
+    <tr><td>Resume Summary</td><td>Generic summary</td><td>Specific, role-based summary</td></tr>
+    <tr><td>YouTube Title</td><td>Bland title</td><td>Engaging title & description</td></tr>
+    <tr><td>Market Report</td><td>Basic statement</td><td>Data-driven insights summary</td></tr>
+  </table>
+
+  <h2 id="contact">Contact & Follow Us</h2>
+  <p>✅ Practice with these examples ✅ Share this guide ✅ Contact us for a branded PDF version</p>
+
+</section>
+
+<div class="fixed-icons">
+  <a href="https://www.instagram.com/thethoughtbite" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+  </a>
+  <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+  </a>
+</div>
+
+<footer>
+  <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
