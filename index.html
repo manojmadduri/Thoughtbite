@@ -15,14 +15,15 @@
       <span>ThoughtBite</span>
     </div>
     <div class="nav-toggle" id="navToggle">
-      <span></span>
-      <span></span>
-      <span></span>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
     <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#videos">Videos</a>
       <a href="#newsletter">Newsletter</a>
+      <a href="context-guide.html">Context Guide</a>
     </nav>
   </header>
 
@@ -39,20 +40,7 @@
 
   <section class="latest" id="videos">
     <h2>Past Videos</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <h3>Top 3 AI Tools That Feel ILLEGAL</h3>
-        <a href="video-top-3-tools.html" class="cta-btn">Watch Now</a>
-      </div>
-      <div class="video-card">
-        <h3>Hidden VS Code Tool</h3>
-        <a href="video-hidden-vscode-tool.html" class="cta-btn">Watch Now</a>
-      </div>
-      <div class="video-card">
-        <h3>AI Critical Thinking Prompt</h3>
-        <a href="ai-prompt.html" class="cta-btn">View Prompt</a>
-      </div>
-    </div>
+    <div class="video-grid" id="pastVideos"></div>
   </section>
 
   <section class="newsletter" id="newsletter">
@@ -76,12 +64,6 @@
   <footer>
     <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
   </footer>
-
-  <script>
-    document.getElementById('navToggle').addEventListener('click', function() {
-      document.getElementById('navLinks').classList.toggle('active');
-    });
-  </script>
 
   <script src="scripts.js"></script>
 </body>
