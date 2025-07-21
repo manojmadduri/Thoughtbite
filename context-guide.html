@@ -1,270 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mastering Prompt & Context Engineering | ThoughtBite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      background: #0f1117;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.7;
-      padding: 2rem;
-    }
-
-    h1, h2, h3 {
-      color: #00e0ff;
-      margin-bottom: 1rem;
-    }
-
-    h1 { font-size: 2rem; margin-top: 1rem; }
-    h2 { font-size: 1.5rem; margin-top: 2rem; }
-    h3 { font-size: 1.25rem; margin-top: 2rem; }
-
-    p, li {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    code, pre {
-      background: #1c1e26;
-      padding: 1rem;
-      display: block;
-      overflow-x: auto;
-      border-radius: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    th, td {
-      border: 1px solid #333;
-      padding: 0.8rem;
-      text-align: left;
-    }
-
-    th {
-      background: #1a1f2e;
-      color: #00e0ff;
-    }
-
-    .image-block {
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    .image-block img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-
-    .footer-cta {
-      margin-top: 3rem;
-      font-size: 1.1rem;
-      background: #1c1e26;
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .footer-cta span {
-      display: block;
-      margin-top: 1rem;
-      color: #00e0ff;
-      font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastering Prompt & Context Engineering - ThoughtBite</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h1>Mastering Prompt Engineering & Context Engineering</h1>
-  <h2>A Practical Guide with Real Examples, AI Outputs, and Visual Prompts</h2>
-
-  <hr />
-
-  <h2>Chapter 1: What is Prompt Engineering?</h2>
-  <p><strong>Prompt Engineering</strong> is crafting precise instructions for AI. The more specific the prompt, the better the AI response.</p>
-
-  <h3>Example 1 — Content Writing</h3>
-  <ul>
-    <li><strong>Prompt:</strong> Write about Artificial Intelligence.</li>
-    <li><strong>AI Output:</strong> Artificial Intelligence refers to machines or software that can perform tasks typically requiring human intelligence.</li>
-  </ul>
-
-  <h4>Detailed Prompt</h4>
-  <ul>
-    <li><strong>Prompt:</strong> You are a tech blogger. Write a short, engaging paragraph about Artificial Intelligence for high school students, using simple language and a real-world example.</li>
-    <li><strong>AI Output:</strong> Imagine if your phone could think! That’s what Artificial Intelligence (AI) is all about. It helps apps like Siri or Alexa answer your questions, or lets your camera recognize faces. AI means machines are learning to do things humans can!</li>
-  </ul>
-
-  <div class="image-block">
-    <p><strong>Visual Prompt Example:</strong></p>
-    <img src="https://cdn.pixabay.com/photo/2023/07/01/10/48/ai-8100532_1280.png" alt="Prompt Writing Example">
+<header class="navbar">
+  <div class="logo">
+    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo">
+    <span>ThoughtBite</span>
   </div>
+  <div class="nav-toggle" id="navToggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="context-guide.html">Context Guide</a>
+    <a href="#references">References</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Mastering Prompt Engineering & Context Engineering</h1>
+    <p>A Practical Guide with Real Examples, AI Outputs, and Visual Prompts</p>
+  </div>
+</section>
+
+<main class="blog-content">
+  <h2>Chapter 1: What is Prompt Engineering?</h2>
+  <p>Prompt Engineering is crafting precise instructions for AI. The more specific the prompt, the better the AI response.</p>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0e42dhmEYbzDfnj1v0Z9Jg.png" alt="Prompt Engineering Example" style="width:100%;margin:1rem 0;">
 
   <h2>Chapter 2: What is Context Engineering?</h2>
-  <p><strong>Context Engineering</strong> sets the background before the AI answers. It includes the role, audience, data, and tone.</p>
-
-  <h3>Example 2 — Social Media Post</h3>
-  <ul>
-    <li><strong>Prompt Only:</strong> Write an Instagram caption about AI.</li>
-    <li><strong>AI Output:</strong> AI is the future of technology.</li>
-  </ul>
-
-  <h4>With Context</h4>
-  <ul>
-    <li><strong>System Instruction:</strong> You are a social media manager for a youth brand. Write a fun, catchy Instagram caption about how AI helps students with studies.</li>
-    <li><strong>Prompt:</strong> Write a caption about AI for Instagram.</li>
-    <li><strong>AI Output:</strong> 🤖 AI hacks for your study sessions? Yes, please! From notes to research, let AI help you study smarter, not harder. #StudentLife #AIHacks</li>
-  </ul>
-
-  <div class="image-block">
-    <p><strong>Visual Prompt:</strong></p>
-    <img src="https://cdn.pixabay.com/photo/2023/03/07/12/23/ai-7833703_1280.jpg" alt="AI Instagram Caption Example">
-  </div>
+  <p>Context Engineering sets the background before the AI answers. It includes the role, audience, data, and tone.</p>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7Ecb3Jhz0F1z6t06f5u1XA.png" alt="Context Engineering Example" style="width:100%;margin:1rem 0;">
 
   <h2>Chapter 3: Code Writing with Context</h2>
-
-  <h3>Example 3 — Python Function</h3>
-  <p><strong>Prompt Only:</strong></p>
-  <pre><code>def is_even(n):
-    return n % 2 == 0
-  </code></pre>
-
-  <p><strong>With Context:</strong></p>
-  <p><strong>System Instruction:</strong> You are a Python tutor for beginners. Write a function to check if a number is even, with clear comments.</p>
-
-  <pre><code>def is_even(number):
+  <pre><code>With Context:
+System Instruction: You are a Python tutor for beginners. Write a function to check if a number is even, with clear comments.
+AI Output:
+def is_even(number):
     # This function checks if the given number is even
     if number % 2 == 0:
         return True  # Number is even
     else:
-        return False  # Number is odd
-  </code></pre>
-
-  <div class="image-block">
-    <p><strong>Visual:</strong></p>
-    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="Python Tutor Illustration">
-  </div>
+        return False  # Number is odd</code></pre>
 
   <h2>Chapter 4: Storytelling Example</h2>
-
-  <ul>
-    <li><strong>Prompt:</strong> Write a story about a robot.</li>
-    <li><strong>AI Output:</strong> There was a robot named Max. He lived in a city. He liked helping people.</li>
-  </ul>
-
-  <h4>With Context</h4>
-  <ul>
-    <li><strong>System Instruction:</strong> You are a storyteller for children. Write a short story about a robot who becomes a school teacher.</li>
-    <li><strong>AI Output:</strong> Once upon a time, in a colorful town, lived Robo-Teacher Max! He loved teaching kids about math and fun. Every day, Max would dance into class, making lessons exciting. Max taught everyone that learning is a superpower!</li>
-  </ul>
-
-  <div class="image-block">
-    <p><strong>Visual:</strong></p>
-    <img src="https://cdn.pixabay.com/photo/2021/06/09/16/30/robot-6322625_1280.png" alt="Robot Storytelling Illustration">
-  </div>
+  <p>Using context allows AI to create tailored, engaging stories.</p>
 
   <h2>Chapter 5: Summary Chart</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Only Prompt Result</th>
-        <th>With Context Result</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Write Blog</td>
-        <td>Generic definition</td>
-        <td>Fun story with real-world example</td>
-      </tr>
-      <tr>
-        <td>Instagram Caption</td>
-        <td>Boring statement</td>
-        <td>Catchy, audience-specific text</td>
-      </tr>
-      <tr>
-        <td>Python Function</td>
-        <td>Basic code</td>
-        <td>Code with comments for learning</td>
-      </tr>
-      <tr>
-        <td>Storytelling</td>
-        <td>Plain sentence</td>
-        <td>Engaging story with moral</td>
-      </tr>
-    </tbody>
-  </table>
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Hlh7n7OifdaQy3VgR5I3lA.png" alt="Summary Chart" style="width:100%;margin:1rem 0;">
 
   <h2>Chapter 6: Practice Prompts for Subscribers</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Prompt</th>
-        <th>Context Instruction</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Email Writing</td>
-        <td>Write a follow-up email.</td>
-        <td>You are a project manager following up after a client meeting.</td>
-      </tr>
-      <tr>
-        <td>LinkedIn Post</td>
-        <td>Write a LinkedIn post on teamwork.</td>
-        <td>You are a team leader sharing a personal experience about teamwork success.</td>
-      </tr>
-      <tr>
-        <td>Travel Blog</td>
-        <td>Write about visiting Paris.</td>
-        <td>You are a travel blogger sharing budget tips for first-time visitors to Paris.</td>
-      </tr>
-    </tbody>
-  </table>
+  <p>Use these prompts and context instructions to practice on your own or with your AI assistant.</p>
 
   <h2>Chapter 7: Image Prompts for Visuals</h2>
   <ul>
-    <li><strong>AI Assistant with Memory Bank:</strong> AI avatar standing next to a memory vault, data streams flowing in background, tech lab environment.</li>
-    <li><strong>Prompt vs Context Split Scene:</strong> Left side shows a person typing a question, right side shows AI receiving data, tools, documents — split screen style.</li>
-    <li><strong>Smart AI Workspace:</strong> Modern digital workspace showing AI connected to documents, tools, and chat interface.</li>
+    <li><strong>AI Assistant with Memory Bank:</strong> <a href="https://openai.com" target="_blank">Sample AI Memory Vault Image</a></li>
+    <li><strong>Prompt vs Context Split Scene:</strong> <a href="https://openai.com" target="_blank">Sample Split Screen Visual</a></li>
+    <li><strong>Smart AI Workspace:</strong> <a href="https://openai.com" target="_blank">Sample Workspace Setup</a></li>
   </ul>
 
   <h2>Chapter 8: Success Formula</h2>
-  <pre><code>System Role + Task Definition + Clear Prompt = Smarter Output</code></pre>
+  <p><strong>System Role + Task Definition + Clear Prompt = Smarter Output</strong></p>
 
   <h2>Chapter 9: Final Thoughts</h2>
+  <p>Mastering both Prompt Engineering and Context Engineering will help you write better AI commands, get smarter outputs, and customize AI to your real needs.</p>
+
+  <h2>Chapter 10: Call to Action</h2>
   <ul>
-    <li>Write better AI commands</li>
-    <li>Get smarter outputs</li>
-    <li>Customize AI to your real needs</li>
+    <li>✅ Practice with these examples</li>
+    <li>✅ Share this guide with friends</li>
+    <li>✅ Follow us for real-life prompt tips</li>
   </ul>
 
-  <div class="footer-cta">
-    ✅ Practice with these examples  
-    ✅ Share this guide with friends  
-    ✅ Follow us for real-life prompt tips  
-    <span>Ready to use this as your AI success playbook? Download. Practice. Win.</span>
-  </div>
+  <h2 id="references">References & Further Reading</h2>
+  <ul>
+    <li><a href="https://openai.com" target="_blank">OpenAI Official Documentation</a></li>
+    <li><a href="https://platform.openai.com/docs/guides/prompting" target="_blank">OpenAI Prompting Guide</a></li>
+    <li><a href="https://www.promptingguide.ai/" target="_blank">The Prompting Guide</a></li>
+    <li><a href="https://www.mindread.ai/blog" target="_blank">Mindread AI Blog</a></li>
+  </ul>
+</main>
+
+<footer>
+  <p>&copy; 2025 ThoughtBite. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
