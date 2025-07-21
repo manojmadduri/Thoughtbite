@@ -293,7 +293,39 @@
         <a href="#introduction" class="cta-btn">Start Learning</a>
     </div>
     <div class="hero-image">
-        <img src="https://cdni.iconscout.com/illustration/premium/thumb/ai-robot-thinking-7084717-5757082.png" alt="AI Engineering Illustration" />
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- AI Brain -->
+            <circle cx="150" cy="120" r="80" fill="#1a1f2e" stroke="#00e0ff" stroke-width="3"/>
+            <circle cx="130" cy="100" r="8" fill="#00e0ff"/>
+            <circle cx="170" cy="100" r="8" fill="#00e0ff"/>
+            <path d="M120 140 Q150 160 180 140" stroke="#00e0ff" stroke-width="3" fill="none"/>
+            
+            <!-- Prompt Arrow -->
+            <path d="M50 180 L120 140" stroke="#00ff88" stroke-width="4" marker-end="url(#arrowgreen)"/>
+            <text x="20" y="175" fill="#00ff88" font-size="14" font-weight="bold">Prompt</text>
+            
+            <!-- Context Cloud -->
+            <ellipse cx="250" cy="180" rx="40" ry="25" fill="#ff6b35" opacity="0.3"/>
+            <text x="225" y="185" fill="#ff6b35" font-size="12" font-weight="bold">Context</text>
+            <path d="M210 170 L180 140" stroke="#ff6b35" stroke-width="4" marker-end="url(#arroworange)"/>
+            
+            <!-- Output -->
+            <rect x="100" y="220" width="100" height="40" rx="10" fill="#00e0ff" opacity="0.2" stroke="#00e0ff"/>
+            <text x="120" y="245" fill="#00e0ff" font-size="14" font-weight="bold">Smart Output</text>
+            <path d="M150 200 L150 220" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue)"/>
+            
+            <defs>
+                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00ff88"/>
+                </marker>
+                <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#ff6b35"/>
+                </marker>
+                <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00e0ff"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
 </section>
 
@@ -311,6 +343,55 @@
 
     <h2>2. What is Context Engineering?</h2>
     <p>Building the environment around AI — including system roles, memory, access to tools — so AI can process prompts better with reliable results.</p>
+
+    <!-- Context Engineering Visual Diagram -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <svg width="100%" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- System Context Circle -->
+            <circle cx="400" cy="200" r="150" fill="#1a1f2e" stroke="#00e0ff" stroke-width="3"/>
+            <text x="400" y="130" text-anchor="middle" fill="#00e0ff" font-size="16" font-weight="bold">AI System Context</text>
+            
+            <!-- Memory Component -->
+            <rect x="320" y="160" width="80" height="30" rx="5" fill="#ff6b35" opacity="0.8"/>
+            <text x="360" y="180" text-anchor="middle" fill="#fff" font-size="12">Memory</text>
+            
+            <!-- Tools Component -->
+            <rect x="320" y="200" width="80" height="30" rx="5" fill="#00ff88" opacity="0.8"/>
+            <text x="360" y="220" text-anchor="middle" fill="#000" font-size="12">Tools & APIs</text>
+            
+            <!-- Knowledge Component -->
+            <rect x="320" y="240" width="80" height="30" rx="5" fill="#ffd700" opacity="0.8"/>
+            <text x="360" y="260" text-anchor="middle" fill="#000" font-size="12">Knowledge</text>
+            
+            <!-- External Systems -->
+            <rect x="50" y="50" width="100" height="50" rx="5" fill="#444" stroke="#00e0ff"/>
+            <text x="100" y="80" text-anchor="middle" fill="#00e0ff" font-size="12">Database</text>
+            <path d="M150 75 L280 160" stroke="#00e0ff" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <rect x="650" y="50" width="100" height="50" rx="5" fill="#444" stroke="#00e0ff"/>
+            <text x="700" y="80" text-anchor="middle" fill="#00e0ff" font-size="12">External API</text>
+            <path d="M650 75 L520 160" stroke="#00e0ff" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <rect x="50" y="320" width="100" height="50" rx="5" fill="#444" stroke="#00e0ff"/>
+            <text x="100" y="350" text-anchor="middle" fill="#00e0ff" font-size="12">User History</text>
+            <path d="M150 345 L280 240" stroke="#00e0ff" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <rect x="650" y="320" width="100" height="50" rx="5" fill="#444" stroke="#00e0ff"/>
+            <text x="700" y="350" text-anchor="middle" fill="#00e0ff" font-size="12">RAG System</text>
+            <path d="M650 345 L520 240" stroke="#00e0ff" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <!-- User Input -->
+            <rect x="350" y="350" width="100" height="30" rx="15" fill="#00ff88"/>
+            <text x="400" y="370" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">User Prompt</text>
+            <path d="M400 350 L400 320" stroke="#00ff88" stroke-width="3" marker-end="url(#arrowgreen2)"/>
+            
+            <defs>
+                <marker id="arrowgreen2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00ff88"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
 
     <h2>3. Why You Need Both</h2>
     <ul>
@@ -405,6 +486,74 @@ Ready to level up? 💪 #TrainSmart #SmartXWatch #FitnessGoals</div>
     </ul>
 
     <h2>6. How Context Engineering Works</h2>
+    
+    <!-- Workflow Diagram -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <svg width="100%" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1: System Role -->
+            <rect x="50" y="50" width="120" height="60" rx="10" fill="#ff6b35" opacity="0.8"/>
+            <text x="110" y="75" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">System Role</text>
+            <text x="110" y="95" text-anchor="middle" fill="#fff" font-size="10">Define AI Persona</text>
+            
+            <!-- Arrow 1 -->
+            <path d="M170 80 L220 80" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue2)"/>
+            
+            <!-- Step 2: Memory -->
+            <rect x="230" y="50" width="120" height="60" rx="10" fill="#ffd700" opacity="0.8"/>
+            <text x="290" y="75" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">Memory Layer</text>
+            <text x="290" y="95" text-anchor="middle" fill="#000" font-size="10">Store Context</text>
+            
+            <!-- Arrow 2 -->
+            <path d="M350 80 L400 80" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue2)"/>
+            
+            <!-- Step 3: RAG -->
+            <rect x="410" y="50" width="120" height="60" rx="10" fill="#00ff88" opacity="0.8"/>
+            <text x="470" y="75" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">RAG System</text>
+            <text x="470" y="95" text-anchor="middle" fill="#000" font-size="10">Retrieve Knowledge</text>
+            
+            <!-- Arrow 3 -->
+            <path d="M530 80 L580 80" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue2)"/>
+            
+            <!-- Step 4: Tools -->
+            <rect x="590" y="50" width="120" height="60" rx="10" fill="#9d4edd" opacity="0.8"/>
+            <text x="650" y="75" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Tool Access</text>
+            <text x="650" y="95" text-anchor="middle" fill="#fff" font-size="10">APIs & Services</text>
+            
+            <!-- Arrow 4 down -->
+            <path d="M650 110 L650 160" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue2)"/>
+            
+            <!-- Step 5: Processing -->
+            <rect x="590" y="170" width="120" height="60" rx="10" fill="#00e0ff" opacity="0.8"/>
+            <text x="650" y="195" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">AI Processing</text>
+            <text x="650" y="215" text-anchor="middle" fill="#000" font-size="10">Generate Response</text>
+            
+            <!-- Arrow 5 left -->
+            <path d="M590 200 L540 200" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue2)"/>
+            
+            <!-- Output -->
+            <rect x="410" y="170" width="120" height="60" rx="10" fill="#f72585" opacity="0.8"/>
+            <text x="470" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Smart Output</text>
+            <text x="470" y="215" text-anchor="middle" fill="#fff" font-size="10">Contextual Result</text>
+            
+            <!-- User Prompt Input -->
+            <rect x="50" y="170" width="120" height="60" rx="10" fill="#06ffa5" opacity="0.8"/>
+            <text x="110" y="195" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">User Prompt</text>
+            <text x="110" y="215" text-anchor="middle" fill="#000" font-size="10">Input Query</text>
+            
+            <!-- Arrow from prompt to processing -->
+            <path d="M170 200 L350 200" stroke="#06ffa5" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowgreen3)"/>
+            
+            <defs>
+                <marker id="arrowblue2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00e0ff"/>
+                </marker>
+                <marker id="arrowgreen3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#06ffa5"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+    
     <ul>
         <li><strong>System Role Settings:</strong> Define AI's personality and expertise</li>
         <li><strong>Long-term Memory Use:</strong> Remember past conversations and preferences</li>
@@ -414,6 +563,67 @@ Ready to level up? 💪 #TrainSmart #SmartXWatch #FitnessGoals</div>
     </ul>
 
     <h2>7. AI Agent Workflow Example — Smart Scheduler</h2>
+    
+    <!-- Smart Scheduler Diagram -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <svg width="100%" height="250" viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+            <!-- User Input -->
+            <rect x="50" y="100" width="100" height="50" rx="8" fill="#06ffa5" stroke="#fff" stroke-width="2"/>
+            <text x="100" y="120" text-anchor="middle" fill="#000" font-size="11" font-weight="bold">User Request:</text>
+            <text x="100" y="135" text-anchor="middle" fill="#000" font-size="9">"30-min slot next week</text>
+            <text x="100" y="145" text-anchor="middle" fill="#000" font-size="9">(no mornings)"</text>
+            
+            <!-- Arrow to AI System -->
+            <path d="M150 125 L200 125" stroke="#00e0ff" stroke-width="3" marker-end="url(#arrowblue3)"/>
+            
+            <!-- AI System Core -->
+            <circle cx="270" cy="125" r="60" fill="#1a1f2e" stroke="#00e0ff" stroke-width="3"/>
+            <text x="270" y="120" text-anchor="middle" fill="#00e0ff" font-size="12" font-weight="bold">Smart</text>
+            <text x="270" y="135" text-anchor="middle" fill="#00e0ff" font-size="12" font-weight="bold">Scheduler</text>
+            
+            <!-- Calendar Integration -->
+            <rect x="380" y="50" width="80" height="40" rx="5" fill="#ff6b35" opacity="0.8"/>
+            <text x="420" y="65" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">Calendar</text>
+            <text x="420" y="78" text-anchor="middle" fill="#fff" font-size="9">Integration</text>
+            <path d="M330 110 L380 70" stroke="#ff6b35" stroke-width="2" stroke-dasharray="3,3"/>
+            
+            <!-- Email Integration -->
+            <rect x="380" y="110" width="80" height="40" rx="5" fill="#ffd700" opacity="0.8"/>
+            <text x="420" y="125" text-anchor="middle" fill="#000" font-size="10" font-weight="bold">Email</text>
+            <text x="420" y="138" text-anchor="middle" fill="#000" font-size="9">System</text>
+            <path d="M330 125 L380 130" stroke="#ffd700" stroke-width="2" stroke-dasharray="3,3"/>
+            
+            <!-- Preferences Database -->
+            <rect x="380" y="170" width="80" height="40" rx="5" fill="#9d4edd" opacity="0.8"/>
+            <text x="420" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">User</text>
+            <text x="420" y="198" text-anchor="middle" fill="#fff" font-size="9">Preferences</text>
+            <path d="M330 140 L380 190" stroke="#9d4edd" stroke-width="2" stroke-dasharray="3,3"/>
+            
+            <!-- Output Arrow -->
+            <path d="M540 125 L590 125" stroke="#00ff88" stroke-width="3" marker-end="url(#arrowgreen4)"/>
+            
+            <!-- AI Output -->
+            <rect x="600" y="80" width="120" height="90" rx="8" fill="#00ff88" opacity="0.2" stroke="#00ff88" stroke-width="2"/>
+            <text x="660" y="100" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Smart Response:</text>
+            <text x="660" y="115" text-anchor="middle" fill="#fff" font-size="9">✓ Tuesday 2-2:30pm</text>
+            <text x="660" y="128" text-anchor="middle" fill="#fff" font-size="9">✓ Wednesday 3-3:30pm</text>
+            <text x="660" y="141" text-anchor="middle" fill="#fff" font-size="9">✓ Draft invite ready</text>
+            <text x="660" y="154" text-anchor="middle" fill="#fff" font-size="9">✓ Avoids morning slots</text>
+            
+            <!-- Processing Label -->
+            <text x="270" y="30" text-anchor="middle" fill="#00e0ff" font-size="14" font-weight="bold">Context-Aware Processing</text>
+            
+            <defs>
+                <marker id="arrowblue3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00e0ff"/>
+                </marker>
+                <marker id="arrowgreen4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00ff88"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+    
     <ul>
         <li><strong>System:</strong> Scheduler integrated with calendar + email</li>
         <li><strong>Context:</strong> User preferences + recent meetings fetched</li>
@@ -433,6 +643,47 @@ Ready to level up? 💪 #TrainSmart #SmartXWatch #FitnessGoals</div>
 
 <section class="content-section" id="comparison">
     <h2>9. Complete Comparison Table</h2>
+    
+    <!-- Visual Comparison Diagram -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <svg width="100%" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Side: Prompt Engineering -->
+            <rect x="50" y="50" width="300" height="200" rx="15" fill="#1a1f2e" stroke="#00ff88" stroke-width="3"/>
+            <text x="200" y="80" text-anchor="middle" fill="#00ff88" font-size="18" font-weight="bold">Prompt Engineering</text>
+            
+            <!-- Prompt Icon -->
+            <circle cx="120" cy="130" r="30" fill="#00ff88" opacity="0.3"/>
+            <text x="120" y="135" text-anchor="middle" fill="#00ff88" font-size="24">📝</text>
+            
+            <!-- Prompt Characteristics -->
+            <text x="200" y="110" text-anchor="middle" fill="#fff" font-size="12">Single Task Focus</text>
+            <text x="200" y="130" text-anchor="middle" fill="#fff" font-size="12">Quick Implementation</text>
+            <text x="200" y="150" text-anchor="middle" fill="#fff" font-size="12">One-time Queries</text>
+            <text x="200" y="170" text-anchor="middle" fill="#fff" font-size="12">Direct Instructions</text>
+            
+            <!-- Arrow -->
+            <text x="400" y="155" text-anchor="middle" fill="#00e0ff" font-size="24">VS</text>
+            
+            <!-- Right Side: Context Engineering -->
+            <rect x="450" y="50" width="300" height="200" rx="15" fill="#1a1f2e" stroke="#ff6b35" stroke-width="3"/>
+            <text x="600" y="80" text-anchor="middle" fill="#ff6b35" font-size="18" font-weight="bold">Context Engineering</text>
+            
+            <!-- Context Icon -->
+            <circle cx="520" cy="130" r="30" fill="#ff6b35" opacity="0.3"/>
+            <text x="520" y="135" text-anchor="middle" fill="#ff6b35" font-size="24">🧠</text>
+            
+            <!-- Context Characteristics -->
+            <text x="600" y="110" text-anchor="middle" fill="#fff" font-size="12">System-wide Setup</text>
+            <text x="600" y="130" text-anchor="middle" fill="#fff" font-size="12">Complex Architecture</text>
+            <text x="600" y="150" text-anchor="middle" fill="#fff" font-size="12">Ongoing Workflows</text>
+            <text x="600" y="170" text-anchor="middle" fill="#fff" font-size="12">Environmental Context</text>
+            
+            <!-- Bottom Labels -->
+            <text x="200" y="230" text-anchor="middle" fill="#00ff88" font-size="14" font-weight="bold">Best for Quick Tasks</text>
+            <text x="600" y="230" text-anchor="middle" fill="#ff6b35" font-size="14" font-weight="bold">Best for AI Agents</text>
+        </svg>
+    </div>
+    
     <table>
         <tr><th>Aspect</th><th>Prompt Engineering</th><th>Context Engineering</th></tr>
         <tr><td>Scope</td><td>Single input tasks</td><td>Full environment setup</td></tr>
