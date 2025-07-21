@@ -1,194 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prompt vs Context Engineering — Final Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0f1117;
-    color: #ffffff;
-    line-height: 1.8;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  h1, h2, h3 {
-    color: #00e0ff;
-    margin-top: 30px;
-    margin-bottom: 10px;
-  }
-  p, li {
-    font-size: 1.05rem;
-    margin-bottom: 12px;
-  }
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 10px;
-  }
-  pre {
-    background: #1c1e26;
-    padding: 15px;
-    border-radius: 10px;
-    overflow-x: auto;
-    color: #00e0ff;
-    font-size: 0.95rem;
-    margin: 15px 0;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1rem;
-  }
-  th, td {
-    border: 1px solid #333;
-    padding: 10px;
-    text-align: left;
-  }
-  th {
-    background: #1a1f2e;
-    color: #00e0ff;
-  }
-  a {
-    color: #00e0ff;
-    text-decoration: underline;
-  }
-  blockquote {
-    border-left: 4px solid #00e0ff;
-    padding-left: 15px;
-    margin: 20px 0;
-    color: #ccc;
-  }
-  .footer {
-    background: #1c1e26;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 40px;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThoughtBite - Context Engineering Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #0f1117; color: #fff; margin: 0; }
+    header.navbar { display: flex; justify-content: space-between; align-items: center; background: #12141d; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
+    .logo { display: flex; align-items: center; font-size: 1.5rem; color: #00e0ff; font-weight: 700; }
+    .logo img { height: 40px; border-radius: 50%; margin-right: 10px; }
+    .nav-links a { margin-left: 2rem; color: #fff; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: #00e0ff; }
+    .nav-toggle { display: none; cursor: pointer; }
+    .nav-toggle .bar { width: 25px; height: 3px; background: #fff; margin: 5px 0; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; background: #12141d; position: absolute; top: 70px; right: 0; width: 200px; }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+    }
+    .content-section { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+    h1, h2, h3 { color: #00e0ff; }
+    p, li { line-height: 1.8; }
+    pre { background: #1c1e26; padding: 1rem; border-radius: 8px; color: #00e0ff; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #333; padding: 10px; }
+    th { background: #1a1f2e; color: #00e0ff; }
+    img.content-img { max-width: 100%; border-radius: 10px; margin: 20px 0; }
+    .fixed-icons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+    .fixed-icons img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .fixed-icons img:hover { transform: scale(1.1); }
+    footer { text-align: center; padding: 2rem; background: #12141d; color: #888; }
+  </style>
 </head>
 <body>
 
-<h1>Prompt Engineering vs Context Engineering — In-Depth Guide</h1>
+<header class="navbar">
+  <div class="logo">
+    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+    <span>ThoughtBite</span>
+  </div>
+  <div class="nav-toggle" id="navToggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#examples">Examples</a>
+    <a href="#summary">Summary</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<img src="https://tse2.mm.bing.net/th/id/OIP.EOveiT-TRMd2TDsMKFZSEgHaEK?pid=Api" alt="Prompt Engineering Overview">
+<section class="content-section">
+  <h1>Mastering Prompt Engineering & Context Engineering</h1>
+  <p>This guide explains with detailed examples how using the right prompts and the right context setup can drastically improve AI responses.</p>
 
-<h2>1. What is Prompt Engineering?</h2>
-<p>Crafting precise instructions that guide AI to generate better outputs. This involves wording, roles, examples, and task framing.</p>
+  <h2 id="examples">Examples</h2>
 
-<h3>Example:</h3>
-<p><strong>Basic Prompt:</strong> "Write a motivational quote."</p>
-<p><strong>Better Prompt with Context:</strong> "You are a startup mentor. Write a motivational quote for young entrepreneurs."</p>
+  <h3>1️⃣ Customer Support Email</h3>
+  <p><strong>Prompt-Only:</strong> “Write a customer support email.”</p>
+  <pre>AI Output: "Thank you for contacting us. We will get back to you soon."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: You are a customer support agent for an online store.
+Customer Data: The order was delayed by 3 days.
+Prompt: Write a polite apology email with a 10% discount offer.
+AI Output:
+Dear [Customer],
+We sincerely apologize for the delay. As a token, enjoy a 10% discount on your next purchase.
+Thank you for your understanding.
+Customer Support Team</pre>
 
-<h2>2. What is Context Engineering?</h2>
-<p>Building the environment around AI — including system roles, memory, access to tools — so AI can process prompts better with reliable results.</p>
+  <h3>2️⃣ Social Media Caption for Product Launch</h3>
+  <p><strong>Prompt-Only:</strong> “Write a social media post for a new product.”</p>
+  <pre>AI Output: "Check out our new product now available!"</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Creative social media manager for a tech gadget.
+Product: AI-powered smartwatch.
+Audience: Fitness enthusiasts.
+Prompt: Write a catchy Instagram caption.
+AI Output:
+🎯 Meet your new fitness buddy — the AI-powered SmartX Watch!
+Track workouts, monitor health, and crush goals smarter.
+Ready to #TrainSmart? 💪 #SmartXWatch</pre>
 
-<h2>3. Why You Need Both</h2>
-<ul>
-  <li><strong>Prompt alone:</strong> Good for simple answers</li>
-  <li><strong>Context + Prompt:</strong> Best for ongoing tasks, workflows, and agents</li>
-</ul>
+  <h3>3️⃣ Resume Summary</h3>
+  <p><strong>Prompt-Only:</strong> “Write a resume summary.”</p>
+  <pre>AI Output: "I am a hardworking professional with experience."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Resume writer for a Full Stack Developer.
+Prompt: Write a strong LinkedIn summary.
+AI Output:
+Full Stack Developer with 5+ years in Java, React, AWS.
+Expert in microservices & cloud deployments.
+Delivering high-impact solutions in agile teams.</pre>
 
-<blockquote>"Prompt helps with good first answers — Context ensures every future answer stays right."</blockquote>
+  <h3>4️⃣ YouTube Video Title & Description</h3>
+  <p><strong>Prompt-Only:</strong> “Write a YouTube title and description.”</p>
+  <pre>AI Output: "AI Tutorial — Learn AI Basics."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: YouTube creator making AI content for beginners.
+Audience: College students.
+Prompt: Write an engaging title and catchy description.
+AI Output:
+Title: AI for Beginners — Start Your Career in AI
+Description: Learn AI basics, projects, and top career tips. Subscribe for expert insights!</pre>
 
-<h2>4. Practical Examples with Context</h2>
+  <h3>5️⃣ Market Research Report Summary</h3>
+  <p><strong>Prompt-Only:</strong> “Write a market research report summary.”</p>
+  <pre>AI Output: "The market is growing. There is demand."</pre>
+  <p><strong>With Context Engineering:</strong></p>
+  <pre>System Instruction: Market research analyst on wearable tech.
+Data: Growth rates, market leaders, trends.
+Prompt: Write a 5-sentence professional summary.
+AI Output:
+The wearable tech market will grow 15% CAGR through 2025.
+Leaders include Apple, Samsung, Fitbit.
+Consumer demand drives AI integration.
+Asia-Pacific shows highest growth potential.
+Affordable smart wearables are key to future expansion.</pre>
 
-<h3>📝 Blog Writing</h3>
-<p><strong>Prompt Only:</strong> "Write a blog on productivity."</p>
-<p><strong>With Context:</strong> "You are a sarcastic productivity coach. Write 5 anti-productivity tips for entrepreneurs."</p>
+  <h2 id="summary">Summary Table — Prompt vs Context Engineering</h2>
+  <table>
+    <tr><th>Task</th><th>Prompt-Only Output</th><th>With Context Output</th></tr>
+    <tr><td>Customer Email</td><td>Generic response</td><td>Polite apology with offer</td></tr>
+    <tr><td>Social Media Post</td><td>Generic announcement</td><td>Catchy, audience-targeted post</td></tr>
+    <tr><td>Resume Summary</td><td>Generic summary</td><td>Specific, role-based summary</td></tr>
+    <tr><td>YouTube Title</td><td>Bland title</td><td>Engaging title & description</td></tr>
+    <tr><td>Market Report</td><td>Basic statement</td><td>Data-driven insights summary</td></tr>
+  </table>
 
-<h3>🖼️ Image Generation</h3>
-<p><strong>Prompt Only:</strong> "Generate sunset over mountains."</p>
-<p><strong>With Context:</strong> "Landscape thumbnail, hiker on a ridge at sunset, minimalist art style, solitude mood."</p>
+  <h2 id="contact">Contact & Follow Us</h2>
+  <p>✅ Practice with these examples ✅ Share this guide ✅ Contact us for a branded PDF version</p>
 
-<h3>💻 Coding Assistance</h3>
-<pre><code>def is_even(n):
-    return n % 2 == 0
+</section>
 
-# With Context - Teaching Example:
-def is_even(number):
-    # Check if number is even
-    if number % 2 == 0:
-        return True
-    return False
-</code></pre>
-
-<h2>5. Key Techniques in Prompt Engineering</h2>
-<ul>
-  <li>Chain-of-Thought Prompting</li>
-  <li>Few-shot Examples for Style</li>
-  <li>Role-based Instructions</li>
-  <li>Output Format Control</li>
-</ul>
-
-<h2>6. How Context Engineering Works</h2>
-<ul>
-  <li>System Role Settings</li>
-  <li>Long-term Memory Use</li>
-  <li>Retrieval Augmented Generation (RAG)</li>
-  <li>Tool Access Integration</li>
-  <li>Efficient Token Management</li>
-</ul>
-
-<h2>7. Visual Ideas for Learning</h2>
-<img src="https://www.vecteezy.com/vector-art/42890643-prompt-engineering-methods-loop-infographic-template-generate-response-data-visualization-with-3-steps-editable-timeline-info-chart-workflow-layout-with-line-icons" alt="Prompt Engineering Methods Infographic">
-<ul>
-  <li>Prompt vs Context Workflow Diagram</li>
-  <li>Flowchart: System + Memory + Tools + Prompt</li>
-  <li>AI Code Tutor Scenario Visual</li>
-</ul>
-
-<h2>8. AI Agent Workflow Example — Smart Scheduler</h2>
-<ul>
-  <li>System: Scheduler integrated with calendar + email</li>
-  <li>Context: User preferences + recent meetings fetched</li>
-  <li>Prompt: Suggest a 30-min slot next week (no mornings)</li>
-  <li>Result: AI suggests times + drafts invite</li>
-</ul>
-
-<h2>9. Best Practice Checklist</h2>
-<ol>
-  <li>Start with clear prompt structure</li>
-  <li>Build solid context and retrieval systems</li>
-  <li>Test and refine with real users</li>
-  <li>Manage token usage wisely</li>
-  <li>Iterate based on scale feedback</li>
-</ol>
-
-<h2>10. Summary Comparison Table</h2>
-<table>
-  <tr><th>Aspect</th><th>Prompt Engineering</th><th>Context Engineering</th></tr>
-  <tr><td>Scope</td><td>Single input tasks</td><td>Full environment setup</td></tr>
-  <tr><td>Goal</td><td>Get a clear answer</td><td>Ensure reliable AI flow</td></tr>
-  <tr><td>Best Use</td><td>Quick tasks</td><td>Long workflows & automation</td></tr>
-</table>
-
-<h2>11. Practice Prompts You Can Use</h2>
-<ul>
-  <li>Customer Support Bot — Add FAQs using RAG</li>
-  <li>Content Planner — Use with brand style guide</li>
-  <li>Code Assistant — Include project repo and linting context</li>
-  <li>Creative Writer — Add moodboard + plot prompts</li>
-</ul>
-
-<h2>References & Learning Sources</h2>
-<ul>
-  <li><a href="https://en.wikipedia.org/wiki/Prompt_engineering">Wikipedia — Prompt Engineering</a></li>
-  <li><a href="https://medium.com/data-science-in-your-pocket/context-engineering-vs-prompt-engineering-379e9622e19d">Medium — Context Engineering</a></li>
-  <li><a href="https://www.walturn.com/insights/understanding-prompt-engineering-and-context-engineering">Walturn — Engineering Insights</a></li>
-</ul>
-
-<div class="footer">
-  ✅ Practice | ✅ Share with others | ✅ Request a branded PDF anytime!
+<div class="fixed-icons">
+  <a href="https://www.instagram.com/thethoughtbite" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+  </a>
+  <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+  </a>
 </div>
+
+<footer>
+  <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
