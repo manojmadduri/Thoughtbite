@@ -1,159 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ThoughtBite - Context Engineering Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body { font-family: 'Poppins', sans-serif; background: #0f1117; color: #fff; margin: 0; }
-    header.navbar { display: flex; justify-content: space-between; align-items: center; background: #12141d; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
-    .logo { display: flex; align-items: center; font-size: 1.5rem; color: #00e0ff; font-weight: 700; }
-    .logo img { height: 40px; border-radius: 50%; margin-right: 10px; }
-    .nav-links a { margin-left: 2rem; color: #fff; font-weight: 600; text-decoration: none; }
-    .nav-links a:hover { color: #00e0ff; }
-    .nav-toggle { display: none; cursor: pointer; }
-    .nav-toggle .bar { width: 25px; height: 3px; background: #fff; margin: 5px 0; }
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; background: #12141d; position: absolute; top: 70px; right: 0; width: 200px; }
-      .nav-links.active { display: flex; }
-      .nav-toggle { display: block; }
-    }
-    .content-section { max-width: 900px; margin: 2rem auto; padding: 1rem; }
-    h1, h2, h3 { color: #00e0ff; }
-    p, li { line-height: 1.8; }
-    pre { background: #1c1e26; padding: 1rem; border-radius: 8px; color: #00e0ff; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th, td { border: 1px solid #333; padding: 10px; }
-    th { background: #1a1f2e; color: #00e0ff; }
-    img.content-img { max-width: 100%; border-radius: 10px; margin: 20px 0; }
-    .fixed-icons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
-    .fixed-icons img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s; }
-    .fixed-icons img:hover { transform: scale(1.1); }
-    footer { text-align: center; padding: 2rem; background: #12141d; color: #888; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtBite - Prompt vs Context Engineering Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: #0f1117; 
+            color: #ffffff; 
+            margin: 0; 
+            line-height: 1.8;
+        }
+        
+        header.navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: #12141d; 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            font-size: 1.5rem; 
+            color: #00e0ff; 
+            font-weight: 700; 
+        }
+        
+        .logo img { 
+            height: 40px; 
+            border-radius: 50%; 
+            margin-right: 10px; 
+        }
+        
+        .nav-links a { 
+            margin-left: 2rem; 
+            color: #fff; 
+            font-weight: 600; 
+            text-decoration: none; 
+        }
+        
+        .nav-links a:hover { 
+            color: #00e0ff; 
+        }
+        
+        .nav-toggle { 
+            display: none; 
+            cursor: pointer; 
+        }
+        
+        .nav-toggle .bar { 
+            width: 25px; 
+            height: 3px; 
+            background: #fff; 
+            margin: 5px 0; 
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                background: #12141d; 
+                position: absolute; 
+                top: 70px; 
+                right: 0; 
+                width: 200px; 
+            }
+            .nav-links.active { 
+                display: flex; 
+            }
+            .nav-toggle { 
+                display: block; 
+            }
+            .hero { 
+                flex-direction: column; 
+                text-align: center; 
+            }
+            .hero-content h1 { 
+                font-size: 2rem; 
+            }
+        }
+        
+        .hero { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 4rem 2rem; 
+            flex-wrap: wrap; 
+            background: radial-gradient(ellipse at top left, #1a1f2e, #0f1117); 
+        }
+        
+        .hero-content { 
+            max-width: 600px; 
+        }
+        
+        .hero-content h1 { 
+            font-size: 3rem; 
+            color: #00e0ff; 
+            margin-bottom: 1rem; 
+        }
+        
+        .hero-content p { 
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+        }
+        
+        .cta-btn { 
+            background: #00e0ff; 
+            color: #000; 
+            padding: 0.8rem 1.5rem; 
+            border-radius: 25px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover { 
+            transform: translateY(-2px); 
+        }
+        
+        .hero-image img { 
+            max-width: 300px; 
+            margin-top: 2rem; 
+        }
+        
+        .content-section { 
+            max-width: 900px; 
+            margin: 2rem auto; 
+            padding: 2rem; 
+        }
+        
+        h1, h2, h3 { 
+            color: #00e0ff; 
+            margin-top: 30px; 
+            margin-bottom: 15px; 
+        }
+        
+        h2 { 
+            font-size: 1.8rem; 
+        }
+        
+        h3 { 
+            font-size: 1.4rem; 
+        }
+        
+        p, li { 
+            font-size: 1.05rem; 
+            margin-bottom: 12px; 
+        }
+        
+        ul, ol { 
+            margin: 15px 0; 
+            padding-left: 25px; 
+        }
+        
+        .ai-output { 
+            background: #1c1e26; 
+            padding: 1rem; 
+            border-left: 4px solid #00e0ff; 
+            border-radius: 8px; 
+            margin: 1rem 0; 
+            white-space: pre-wrap; 
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        pre { 
+            background: #1c1e26; 
+            padding: 15px; 
+            border-radius: 10px; 
+            overflow-x: auto; 
+            color: #00e0ff; 
+            font-size: 0.95rem; 
+            margin: 15px 0; 
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            font-size: 1rem; 
+        }
+        
+        th, td { 
+            border: 1px solid #333; 
+            padding: 10px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background: #1a1f2e; 
+            color: #00e0ff; 
+        }
+        
+        a { 
+            color: #00e0ff; 
+            text-decoration: underline; 
+        }
+        
+        blockquote { 
+            border-left: 4px solid #00e0ff; 
+            padding-left: 15px; 
+            margin: 20px 0; 
+            color: #ccc; 
+            font-style: italic;
+        }
+        
+        .comparison-section {
+            background: #1a1f2e;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .example-box {
+            background: #12141d;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid #333;
+        }
+        
+        .fixed-icons { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            z-index: 1000; 
+        }
+        
+        .fixed-icons img { 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            transition: transform 0.3s; 
+        }
+        
+        .fixed-icons img:hover { 
+            transform: scale(1.1); 
+        }
+        
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            background: #12141d; 
+            color: #888; 
+            margin-top: 3rem;
+        }
+        
+        .footer-cta {
+            background: #1c1e26;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 40px 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="logo">
-    <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
-    <span>ThoughtBite</span>
-  </div>
-  <div class="nav-toggle" id="navToggle">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-  <nav class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="#examples">Examples</a>
-    <a href="#summary">Summary</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="logo">
+        <img src="https://yt3.googleusercontent.com/pzsoAprJDl6Fnrapr8e0AycaayzEUWOFMpJrKRQg4GgnAJhfrDWksmLLmA-g6Ig3mjVC6VwYigI=s160-c-k-c0x00ffffff-no-rj" alt="ThoughtBite Logo" />
+        <span>ThoughtBite</span>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+        <a href="#introduction">Introduction</a>
+        <a href="#examples">Examples</a>
+        <a href="#techniques">Techniques</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#practice">Practice</a>
+    </nav>
 </header>
 
-<section class="content-section">
-  <h1>Mastering Prompt Engineering & Context Engineering</h1>
-  <p>This guide explains with detailed examples how using the right prompts and the right context setup can drastically improve AI responses.</p>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Prompt vs Context Engineering</h1>
+        <p>Master the art of crafting precise instructions and building smart AI environments for consistently better results.</p>
+        <a href="#introduction" class="cta-btn">Start Learning</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/ai-robot-thinking-7084717-5757082.png" alt="AI Engineering Illustration" />
+    </div>
+</section>
 
-  <h2 id="examples">Examples</h2>
+<section class="content-section" id="introduction">
+    <h2>1. What is Prompt Engineering?</h2>
+    <p>Crafting precise instructions that guide AI to generate better outputs. This involves wording, roles, examples, and task framing.</p>
 
-  <h3>1️⃣ Customer Support Email</h3>
-  <p><strong>Prompt-Only:</strong> “Write a customer support email.”</p>
-  <pre>AI Output: "Thank you for contacting us. We will get back to you soon."</pre>
-  <p><strong>With Context Engineering:</strong></p>
-  <pre>System Instruction: You are a customer support agent for an online store.
-Customer Data: The order was delayed by 3 days.
-Prompt: Write a polite apology email with a 10% discount offer.
-AI Output:
-Dear [Customer],
-We sincerely apologize for the delay. As a token, enjoy a 10% discount on your next purchase.
-Thank you for your understanding.
-Customer Support Team</pre>
+    <div class="example-box">
+        <h3>Example:</h3>
+        <p><strong>Basic Prompt:</strong> "Write a motivational quote."</p>
+        <div class="ai-output">Success comes to those who work hard.</div>
+        <p><strong>Better Prompt with Context:</strong> "You are a startup mentor. Write a motivational quote for young entrepreneurs."</p>
+        <div class="ai-output">Every failed startup is just market research for your next billion-dollar idea. Keep building! 🚀</div>
+    </div>
 
-  <h3>2️⃣ Social Media Caption for Product Launch</h3>
-  <p><strong>Prompt-Only:</strong> “Write a social media post for a new product.”</p>
-  <pre>AI Output: "Check out our new product now available!"</pre>
-  <p><strong>With Context Engineering:</strong></p>
-  <pre>System Instruction: Creative social media manager for a tech gadget.
-Product: AI-powered smartwatch.
-Audience: Fitness enthusiasts.
-Prompt: Write a catchy Instagram caption.
-AI Output:
-🎯 Meet your new fitness buddy — the AI-powered SmartX Watch!
-Track workouts, monitor health, and crush goals smarter.
-Ready to #TrainSmart? 💪 #SmartXWatch</pre>
+    <h2>2. What is Context Engineering?</h2>
+    <p>Building the environment around AI — including system roles, memory, access to tools — so AI can process prompts better with reliable results.</p>
 
-  <h3>3️⃣ Resume Summary</h3>
-  <p><strong>Prompt-Only:</strong> “Write a resume summary.”</p>
-  <pre>AI Output: "I am a hardworking professional with experience."</pre>
-  <p><strong>With Context Engineering:</strong></p>
-  <pre>System Instruction: Resume writer for a Full Stack Developer.
-Prompt: Write a strong LinkedIn summary.
-AI Output:
-Full Stack Developer with 5+ years in Java, React, AWS.
-Expert in microservices & cloud deployments.
-Delivering high-impact solutions in agile teams.</pre>
+    <h2>3. Why You Need Both</h2>
+    <ul>
+        <li><strong>Prompt alone:</strong> Good for simple answers</li>
+        <li><strong>Context + Prompt:</strong> Best for ongoing tasks, workflows, and agents</li>
+    </ul>
 
-  <h3>4️⃣ YouTube Video Title & Description</h3>
-  <p><strong>Prompt-Only:</strong> “Write a YouTube title and description.”</p>
-  <pre>AI Output: "AI Tutorial — Learn AI Basics."</pre>
-  <p><strong>With Context Engineering:</strong></p>
-  <pre>System Instruction: YouTube creator making AI content for beginners.
-Audience: College students.
-Prompt: Write an engaging title and catchy description.
-AI Output:
-Title: AI for Beginners — Start Your Career in AI
-Description: Learn AI basics, projects, and top career tips. Subscribe for expert insights!</pre>
+    <blockquote>"Prompt helps with good first answers — Context ensures every future answer stays right."</blockquote>
+</section>
 
-  <h3>5️⃣ Market Research Report Summary</h3>
-  <p><strong>Prompt-Only:</strong> “Write a market research report summary.”</p>
-  <pre>AI Output: "The market is growing. There is demand."</pre>
-  <p><strong>With Context Engineering:</strong></p>
-  <pre>System Instruction: Market research analyst on wearable tech.
-Data: Growth rates, market leaders, trends.
-Prompt: Write a 5-sentence professional summary.
-AI Output:
-The wearable tech market will grow 15% CAGR through 2025.
-Leaders include Apple, Samsung, Fitbit.
-Consumer demand drives AI integration.
-Asia-Pacific shows highest growth potential.
-Affordable smart wearables are key to future expansion.</pre>
+<section class="content-section" id="examples">
+    <h2>4. Real Examples with Clear AI Outputs</h2>
 
-  <h2 id="summary">Summary Table — Prompt vs Context Engineering</h2>
-  <table>
-    <tr><th>Task</th><th>Prompt-Only Output</th><th>With Context Output</th></tr>
-    <tr><td>Customer Email</td><td>Generic response</td><td>Polite apology with offer</td></tr>
-    <tr><td>Social Media Post</td><td>Generic announcement</td><td>Catchy, audience-targeted post</td></tr>
-    <tr><td>Resume Summary</td><td>Generic summary</td><td>Specific, role-based summary</td></tr>
-    <tr><td>YouTube Title</td><td>Bland title</td><td>Engaging title & description</td></tr>
-    <tr><td>Market Report</td><td>Basic statement</td><td>Data-driven insights summary</td></tr>
-  </table>
+    <div class="comparison-section">
+        <h3>📝 Blog Writing</h3>
+        <p><strong>Prompt Only:</strong> "Write a blog on productivity."</p>
+        <div class="ai-output">Productivity is important for success. Here are some tips to be more productive...</div>
+        <p><strong>With Context:</strong> "You are a sarcastic productivity coach. Write 5 anti-productivity tips for entrepreneurs."</p>
+        <div class="ai-output">1. Check emails every 3 minutes - FOMO is real, folks!
+2. Attend every meeting, even if you're not needed
+3. Perfect your to-do list design instead of doing tasks
+4. Multitask like a circus performer
+5. Never say no - be everyone's hero! 🤡</div>
+    </div>
 
-  <h2 id="contact">Contact & Follow Us</h2>
-  <p>✅ Practice with these examples ✅ Share this guide ✅ Contact us for a branded PDF version</p>
+    <div class="comparison-section">
+        <h3>🖼️ Image Generation</h3>
+        <p><strong>Prompt Only:</strong> "Generate sunset over mountains."</p>
+        <div class="ai-output">A sunset over mountains.</div>
+        <p><strong>With Context:</strong> "Landscape thumbnail, hiker on a ridge at sunset, minimalist art style, solitude mood."</p>
+        <div class="ai-output">Minimalist landscape: lone hiker silhouette on mountain ridge, golden sunset, clean lines, peaceful solitude, Instagram-ready composition.</div>
+    </div>
 
+    <div class="comparison-section">
+        <h3>💻 Coding Assistance</h3>
+        <p><strong>Basic Code:</strong></p>
+        <pre><code>def is_even(n):
+    return n % 2 == 0</code></pre>
+        <p><strong>With Context - Teaching Example:</strong></p>
+        <pre><code>def is_even(number):
+    """
+    Check if a number is even
+    Args: number (int): The number to check
+    Returns: bool: True if even, False if odd
+    """
+    if number % 2 == 0:
+        return True
+    return False
+
+# Example usage:
+print(is_even(4))  # Output: True
+print(is_even(7))  # Output: False</code></pre>
+    </div>
+
+    <div class="comparison-section">
+        <h3>📧 Customer Support Email</h3>
+        <p><strong>Prompt-Only:</strong> "Write a customer support email."</p>
+        <div class="ai-output">Thank you for contacting us. We will get back to you soon.</div>
+        <p><strong>With Context:</strong> Support agent with delayed order scenario</p>
+        <div class="ai-output">Dear [Customer], 
+
+We sincerely apologize for the 3-day delay with your order #12345. Our warehouse experienced unexpected high demand, but your items are now being expedited. 
+
+As our apology, please enjoy 10% off your next order with code SORRY10. We truly value your patience and business!
+
+Best regards,
+Customer Success Team</div>
+    </div>
+
+    <div class="comparison-section">
+        <h3>📱 Social Media Product Launch</h3>
+        <p><strong>Prompt-Only:</strong> "Write a social media post for a new product."</p>
+        <div class="ai-output">Check out our new product now available!</div>
+        <p><strong>With Context:</strong> Creative social manager announcing AI Smartwatch</p>
+        <div class="ai-output">🎯 Meet your new fitness buddy — SmartX AI Watch! 
+
+✅ Track workouts intelligently
+✅ Monitor health 24/7
+✅ Crush goals smarter, not harder
+
+Ready to level up? 💪 #TrainSmart #SmartXWatch #FitnessGoals</div>
+    </div>
+</section>
+
+<section class="content-section" id="techniques">
+    <h2>5. Key Techniques in Prompt Engineering</h2>
+    <ul>
+        <li><strong>Chain-of-Thought Prompting:</strong> Ask AI to show reasoning steps</li>
+        <li><strong>Few-shot Examples:</strong> Provide 2-3 examples of desired output style</li>
+        <li><strong>Role-based Instructions:</strong> Give AI a specific persona or expertise</li>
+        <li><strong>Output Format Control:</strong> Specify exact structure (JSON, table, bullet points)</li>
+    </ul>
+
+    <h2>6. How Context Engineering Works</h2>
+    <ul>
+        <li><strong>System Role Settings:</strong> Define AI's personality and expertise</li>
+        <li><strong>Long-term Memory Use:</strong> Remember past conversations and preferences</li>
+        <li><strong>Retrieval Augmented Generation (RAG):</strong> Access external knowledge bases</li>
+        <li><strong>Tool Access Integration:</strong> Connect to APIs, databases, and services</li>
+        <li><strong>Efficient Token Management:</strong> Optimize context window usage</li>
+    </ul>
+
+    <h2>7. AI Agent Workflow Example — Smart Scheduler</h2>
+    <ul>
+        <li><strong>System:</strong> Scheduler integrated with calendar + email</li>
+        <li><strong>Context:</strong> User preferences + recent meetings fetched</li>
+        <li><strong>Prompt:</strong> "Suggest a 30-min slot next week (no mornings)"</li>
+        <li><strong>Result:</strong> AI suggests optimal times + drafts meeting invite</li>
+    </ul>
+
+    <h2>8. Best Practice Checklist</h2>
+    <ol>
+        <li>Start with clear prompt structure and specific goals</li>
+        <li>Build solid context and retrieval systems</li>
+        <li>Test and refine with real users and edge cases</li>
+        <li>Manage token usage wisely for cost efficiency</li>
+        <li>Iterate based on scale feedback and performance metrics</li>
+    </ol>
+</section>
+
+<section class="content-section" id="comparison">
+    <h2>9. Complete Comparison Table</h2>
+    <table>
+        <tr><th>Aspect</th><th>Prompt Engineering</th><th>Context Engineering</th></tr>
+        <tr><td>Scope</td><td>Single input tasks</td><td>Full environment setup</td></tr>
+        <tr><td>Goal</td><td>Get a clear answer</td><td>Ensure reliable AI flow</td></tr>
+        <tr><td>Best Use</td><td>Quick tasks & one-offs</td><td>Long workflows & automation</td></tr>
+        <tr><td>Complexity</td><td>Simple to moderate</td><td>Advanced system design</td></tr>
+        <tr><td>Maintenance</td><td>Low</td><td>Requires ongoing optimization</td></tr>
+    </table>
+
+    <h2>Real Output Comparison</h2>
+    <table>
+        <tr><th>Task</th><th>Prompt-Only Output</th><th>With Context Output</th></tr>
+        <tr><td>Customer Email</td><td>Generic auto-reply</td><td>Personalized apology + solution</td></tr>
+        <tr><td>Social Media Post</td><td>Bland announcement</td><td>Engaging with emojis & hashtags</td></tr>
+        <tr><td>Resume Summary</td><td>Generic template</td><td>Role-specific & compelling</td></tr>
+        <tr><td>YouTube Content</td><td>Basic description</td><td>SEO-optimized with hook</td></tr>
+        <tr><td>Market Report</td><td>Vague statements</td><td>Data-driven insights</td></tr>
+    </table>
+</section>
+
+<section class="content-section" id="practice">
+    <h2>10. Practice Prompts You Can Try</h2>
+    <div class="example-box">
+        <ul>
+            <li><strong>Customer Support Bot:</strong> Add FAQs using RAG for instant answers</li>
+            <li><strong>Content Planner:</strong> Use with brand style guide for consistent voice</li>
+            <li><strong>Code Assistant:</strong> Include project repo and linting context</li>
+            <li><strong>Creative Writer:</strong> Add moodboard + plot prompts for inspiration</li>
+            <li><strong>Email Assistant:</strong> Context with recipient history and company tone</li>
+            <li><strong>Social Media Manager:</strong> Brand voice + trending hashtags + audience insights</li>
+        </ul>
+    </div>
+
+    <h2>11. References & Learning Sources</h2>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank">Wikipedia — Prompt Engineering</a></li>
+        <li><a href="https://medium.com/data-science-in-your-pocket/context-engineering-vs-prompt-engineering-379e9622e19d" target="_blank">Medium — Context Engineering</a></li>
+        <li><a href="https://www.walturn.com/insights/understanding-prompt-engineering-and-context-engineering" target="_blank">Walturn — Engineering Insights</a></li>
+    </ul>
+
+    <div class="footer-cta">
+        ✅ Practice with real projects | ✅ Share with your team | ✅ Build your own AI workflows!
+    </div>
 </section>
 
 <div class="fixed-icons">
-  <a href="https://www.instagram.com/thethoughtbite" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
-  </a>
-  <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
-  </a>
+    <a href="https://www.instagram.com/thethoughtbite" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+    </a>
+    <a href="https://www.youtube.com/@thethoughtbite" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+    </a>
 </div>
 
-<footer>
-  <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
+<footer id="contact">
+    <p>&copy; 2025 ThoughtBite. Made with ❤️ for curious tech minds.</p>
 </footer>
 
 <script>
-  document.getElementById('navToggle').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('active');
-  });
+    // Mobile navigation toggle
+    document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
 </script>
 
 </body>
